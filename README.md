@@ -1,6 +1,6 @@
-Symfony Blog Projesi
+# Symfony Blog Projesi
 
-Symfony ile geliştirilen örnek bir blog projesidir.
+#Symfony ile geliştirilen örnek bir blog projesidir.
 Kullanılan Bileşenler
 
  - Php
