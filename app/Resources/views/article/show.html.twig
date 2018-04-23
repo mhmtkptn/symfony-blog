@@ -1,0 +1,24 @@
+{% extends "/main.twig" %}
+    {% block author %}{{ article.userId }}{% endblock %}
+    {% block title %} {{ article.title }}{% endblock %}
+    {% block keywords %}{{ article.keyword }}{% endblock %}
+    {% block projectName %} {{ article.title }} {% endblock %}
+{% block body %}
+
+
+
+    <div class="row marketing">
+        <div class="col-md-12">
+            <h4>{{ article.title }}</h4>
+            <br>
+            <p>{{ article.content }}</p>
+            <br>
+            <p><img src="../uploads/{{ article.fileId }}"/></p>
+            <br>
+            <p><b>Keywords: </b>{{ article.keyword }}</p>
+        </div>
+    </div>
+
+{% endblock %}
+
+

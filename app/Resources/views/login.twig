@@ -1,0 +1,14 @@
+{% extends '/main.twig' %}
+{% block title %} Giriş {% endblock %}
+{% block projectName %}Giriş{% endblock %}
+{% block login %}active{% endblock %}
+
+
+{% block body %}
+
+    {{ form_start(form) }}
+    {{ form_widget(form) }}
+    {{ form_end(form) }}
+    <br>
+    <p>Üye değilseniz, üye olmak için <a href="/user/new">tıklayınız</a></p>
+{% endblock %}

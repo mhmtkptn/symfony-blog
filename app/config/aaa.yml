@@ -1,0 +1,60 @@
+version: '3'
+services:
+    nginx:
+        build: nginx
+        container_name: nginx
+        volumes:
+            - "./logs/nginx/:/var/log/nginx"
+            - "./etc/php/php.ini:/usr/local/etc/php/conf.d/php.ini"
+            - "./:/var/www/html"
+        ports:
+            - "80:80"
+            - "443:443"
+        depends_on:
+            - php
+        networks:
+            - symfony
+
+    php:
+        image: php:5.6.31-fpm
+        restart: always
+        volumes:
+            - "./etc/php/php.ini:/usr/local/etc/php/conf.d/php.ini"
+            - "./:/var/www/html"
+        networks:
+            - symfony
+    phpmyadmin:
+        image: phpmyadmin/phpmyadmin
+        container_name: phpmyadmin
+        ports:
+            - "8080:80"
+        environment:
+            - PMA_ARBITRARY=1
+            - PMA_HOST=mysql
+        restart: always
+        depends_on:
+            - mysql
+        networks:
+            - symfony
+    mysql:
+        image: mysql
+        container_name: mysql
+        restart: always
+        environment:
+            - MYSQL_DATABASE= blog
+            - MYSQL_ROOT_PASSWORD= 323500
+            - MYSQL_USER= kptn
+            - MYSQL_PASSWORD= 323500
+        ports:
+            - "3306:3306"
+        volumes:
+            - "./data/db/mysql:/var/lib/mysql"
+        networks:
+            - symfony
+    redis:
+        build: redis
+        networks:
+            - symfony
+networks:
+    symfony:
+        driver: bridge

@@ -1,0 +1,32 @@
+{% extends "admin/admin.main.twig" %}
+{% block user %}active{% endblock %}
+{% block body %}
+    <h3>Kullanıcı Listesi</h3>
+
+
+        {% for user in users %}
+
+            <div class="row marketing">
+                <div class="col-md-12">
+                    <p>Kullanıcı adı: <span class="text-muted">{{ user.userName }}</span></p>
+                    <p>E-Posta: <span class="text-muted">{{ user.eMail }}</span></p>
+                    <p>Durum: <span class="text-muted">{{ user.status }}</span></p>
+                    <div class="btn-group" role="group">
+                    <a class="btn btn-outline-primary" href="{{ path('user_show', { 'id': user.id }) }}">Göster</a>
+                    <a class="btn btn-outline-primary" href="{{ user.id }}/edit">Düzenle</a>
+                    </div>
+                    </div>
+            </div>
+
+        {% endfor %}
+<div class="row marketing">
+    <div class="col-md-6">
+        <a class="btn btn-outline-primary" href="{{ path('user_new') }}">Yeni kullanıcı ekle</a>
+
+    </div>
+    <div class="col-md-6">
+        <a class="btn" disabled>Toplam kullanıcı sayısı:  {{ users|length }}</a>
+
+    </div>
+</div>
+{% endblock %}

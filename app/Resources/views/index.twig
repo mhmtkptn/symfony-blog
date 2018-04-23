@@ -1,0 +1,26 @@
+{% extends '/main.twig' %}
+{% block title %} Blog Anasayfa {% endblock %}
+{% block projectName %} Symfony Blog {% endblock %}
+{% block index %}active{% endblock %}
+{% block body %}
+
+
+
+    <div class="jumbotron">
+        <h1 class="display-4">Symfony3 Blog Projesi</h1>
+        <p class="lead">deneme yazısı 3 2 1</p>
+        <p><a class="btn btn-lg btn-success" href="/user/new" role="button">Kayıt ol</a></p>
+    </div>
+
+    {% for article in articles|slice(0,3) %}
+
+        <div class="row marketing">
+            <div class="col-md-12">
+                <h4>{{ article.title|capitalize }}</h4>
+                <p>{{ article.content|slice(0,250)|capitalize }}</p>
+                <a href="article/{{ article.id }}">Devamı</a>
+            </div>
+        </div>
+    {% endfor %}
+
+{% endblock %}

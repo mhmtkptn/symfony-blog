@@ -1,0 +1,9 @@
+{% extends "admin/admin.main.twig" %}
+{% block admin %}active{% endblock %}
+{% block body %}
+    <h3>Yönetim paneline hoşgeldiniz.</h3>
+    <br>
+    <br>
+    <p>Giriş yapan kullınıcı: {{ app.user.username }}</p>
+    <p>Giriş yapılan ip adresi: {{ app.request.server.get("REMOTE_ADDR")}}</p>
+{% endblock %}

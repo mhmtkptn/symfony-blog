@@ -1,0 +1,29 @@
+{% extends "admin/admin.main.twig" %}
+{% block contact %}active{% endblock %}
+{% block body %}
+    <h3>Mesaj Listesi</h3>
+
+
+        {% for contact in contacts %}
+
+            <div class="row marketing">
+                <div class="col-md-12">
+                    <p>Mesaj id: <span class="text-muted">{{ contact.id }}</span></p>
+                    <p>Başlık: <span class="text-muted">{{ contact.title }}</span></p>
+                    <p>Durum: <span class="text-muted">{{ contact.status }}</span></p>
+                    <div class="btn-group" role="group">
+                        <a class="btn btn-outline-primary" href="{{ path('contact_show', { 'id': contact.id }) }}">Göster</a>
+                        <a class="btn btn-outline-primary" href="{{ contact.id }}/edit">Düzenle</a>
+                    </div>
+                </div>
+            </div>
+
+        {% endfor %}
+
+        <div class="row marketing">
+            <div class="col-md-6">
+                <a class="btn" disabled>Toplam mesaj sayısı:  {{ contacts|length }}</a>
+            </div>
+        </div>
+
+{% endblock %}

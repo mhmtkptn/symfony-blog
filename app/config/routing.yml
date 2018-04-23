@@ -1,0 +1,28 @@
+app:
+    resource: '@AppBundle/Controller/'
+    type: annotation
+
+logout:
+    path: /logout
+
+app_abstract:
+    resource: '@AppBundle/Config/Routing/abstract.yml'
+
+app_user:
+    resource: '@AppBundle/Config/Routing/user.yml'
+
+app_article:
+    resource: '@AppBundle/Config/Routing/article.yml'
+
+app_member:
+    resource: '@AppBundle/Config/Routing/member.yml'
+
+app_category:
+    resource: '@AppBundle/Config/Routing/category.yml'
+
+app_contact:
+    resource: '@AppBundle/Config/Routing/contact.yml'
+
+
+
+

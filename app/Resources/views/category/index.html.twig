@@ -1,0 +1,35 @@
+{% extends "admin/admin.main.twig" %}
+{% block category %}active{% endblock %}
+{% block body %}
+
+    <h3>Kategori Listesi</h3>
+
+
+        {% for category in categories %}
+
+            <div class="row marketing">
+                <div class="col-md-12">
+                    <p>Kategori id: <span class="text-muted">{{ category.id }}</span></p>
+                    <p>Kategori adı: <span class="text-muted">{{ category.name }}</span></p>
+                    <div class="btn-group" role="group">
+                        <a class="btn btn-outline-primary" href="{{ path('category_show', { 'id': category.id }) }}">Göster</a>
+                        <a class="btn btn-outline-primary" href="{{ category.id }}/edit">Düzenle</a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+
+
+        <div class="row marketing">
+            <div class="col-md-6">
+                <a class="btn btn-outline-primary" href="{{ path('category_new') }}">Yeni kategori ekle</a>
+
+            </div>
+            <div class="col-md-6">
+                <a class="btn" disabled>Toplam kategori sayısı:  {{ categories|length }}</a>
+
+            </div>
+        </div>
+
+
+{% endblock %}

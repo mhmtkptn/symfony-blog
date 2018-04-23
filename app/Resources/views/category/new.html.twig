@@ -1,0 +1,18 @@
+{% extends "admin/admin.main.twig" %}
+{% block category %}active{% endblock %}
+{% block body %}
+    <h3>Yeni Kategori</h3>
+    <br>
+
+    {{ form_start(form) }}
+        {{ form_widget(form) }}
+    {{ form_end(form) }}
+
+    <div class="row marketing">
+        <div class="col-md-12">
+            <div class="btn-group" role="group">
+                <a class="btn btn-outline-primary" href="{{ path('category_index') }}">Kategori listesi</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,3 @@
+newAction:
+    path:     /newAction
+    defaults: { _controller: 'AppBundle:Article:new'}

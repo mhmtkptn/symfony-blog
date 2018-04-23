@@ -1,0 +1,22 @@
+{% extends "main.twig" %}
+    {% block author %}Kaptan{% endblock %}
+    {% block title %}Hakkımızda{% endblock %}
+    {% block keywords %}symfony, symfony blog{% endblock %}
+    {% block projectName %}Hakkımızda{% endblock %}
+    {% block about %}active{% endblock %}
+
+{% block body %}
+
+    <div class="row marketing">
+        <div class="col-md-12">
+            <p>Bu bir blog projesidir. Bu blog projesi Symfony framework'ü kullanılarak yapılmıştır.</p>
+            <br>
+            <p><img style="width: 30%" src="{{ asset('uploads/symfony.png') }}"/></p>
+            <br>
+            <p>Bizimle iletişime geçmek için <a href="/contact/new"><b>tıklayınız</b></a> </p>
+        </div>
+    </div>
+
+{% endblock %}
+
+

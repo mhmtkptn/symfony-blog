@@ -1,0 +1,22 @@
+{% extends "admin/admin.main.twig" %}
+{% block contact %}active{% endblock %}
+{% block body %}
+    <h3>"{{ contact.title }}" Mesajı Düzenle</h3>
+    <br>
+
+    {{ form_start(edit_form) }}
+    {{ form_widget(edit_form) }}
+    {{ form_end(edit_form) }}
+    {{ form_start(delete_form) }}
+    <input type="submit" value="Delete">
+    {{ form_end(delete_form) }}
+
+    <div class="row marketing">
+        <div class="col-md-12">
+            <div class="btn-group" role="group">
+                <a class="btn btn-outline-primary" href="{{ path('contact_index') }}">Mesaj listesi</a>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

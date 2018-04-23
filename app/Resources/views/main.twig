@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="{% block keywords %}symfony, blog, hafta2, bootstrap{% endblock %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="author" content="{% block author %}Kaptan{% endblock %}">
+
+    <title>{% block title %} Hafta2 Symfony Blog Projesi{% endblock %}</title>
+
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('bundles/css/narrow-jumbotron.css') }}">
+</head>
+<body>
+<div class="container">
+    <div class="header clearfix">
+        <nav>
+            <ul class="nav nav-pills float-right">
+                <li class="nav-item">
+                    <a class="nav-link {% block index %}{% endblock %}" href="/">Anasayfa</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {% block about %}{% endblock %}" href="/about">Hakkımızda</a>
+                </li>
+                {% if app.user %}
+
+                    <li class="nav-item">
+                        <a class="nav-link " href="/admin">Yönetim</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link " href="/logout">Çıkış</a>
+                    </li>
+
+                {% else %}
+
+                    <li class="nav-item">
+                        <a class="nav-link {% block login %}{% endblock %}" href="/login">Giriş</a>
+                    </li>
+
+                {% endif %}
+
+                <li class="nav-item">
+                    <a class="nav-link {% block contact %}{% endblock %}" href="/contact/new">İletişim</a>
+                </li>
+            </ul>
+        </nav>
+        <h3 class="text-muted">{% block projectName %} {% endblock %}</h3>
+    </div>
+
+    {% block body %}{% endblock %}
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
+</body>
+</footer class="footer">
+<br>
+{{ random(['arya', 'mezestre', 'toka']) }}
+
+<hr>
+<small>&copy; Copyright 2017, Kaptan</small>
+</footer>
+</html>

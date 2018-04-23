@@ -1,0 +1,32 @@
+{% extends '/admin/admin.main.twig' %}
+{% block article %}active{% endblock %}
+{% block body %}
+    <h3>Makale Listesi</h3>
+
+    {% for article in articles %}
+
+        <div class="row marketing">
+            <div class="col-md-12">
+                <p>Başlık: <span class="text-muted">{{ article.title }}</span></p>
+                <p>İçerik: <span class="text-muted">{{ article.content|slice(0,250) }}</span></p>
+                <p>Durum: <span class="text-muted">{{ article.status }}</span></p>
+                <div class="btn-group" role="group">
+                    <a class="btn btn-outline-primary" href="{{ path('article_show', { 'id': article.id }) }}">Göster</a>
+                    <a class="btn btn-outline-primary" href="{{ article.id }}/edit">Düzenle</a>
+                </div>
+
+            </div>
+        </div>
+    {% endfor %}
+
+    <div class="row marketing">
+        <div class="col-md-6">
+            <a class="btn btn-outline-primary" href="{{ path('article_new') }}">Yeni makale ekle</a>
+
+        </div>
+        <div class="col-md-6">
+            <a class="btn" disabled>Toplam makale sayısı:  {{ articles|length }}</a>
+        </div>
+    </div>
+
+{% endblock %}
