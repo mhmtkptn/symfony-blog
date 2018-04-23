@@ -10,5 +10,3 @@ Symfony ile geliştirilen örnek bir blog projesidir.
  - Symfony
  - Redis
  - Mysql
-
-
